@@ -22,4 +22,35 @@
   </div>
 </section>
 
+<!-- Logo strip + intro -->
+<section class="logos-intro">
+  <div class="logos-row">
+    <img src="https://via.placeholder.com/120x40?text=OpenAI" alt="OpenAI">
+    <img src="https://via.placeholder.com/120x40?text=n8n" alt="n8n">
+    <img src="https://via.placeholder.com/120x40?text=Perplexity" alt="Perplexity">
+    <img src="https://via.placeholder.com/120x40?text=Copilot" alt="Copilot">
+  </div>
+
+  <div class="intro-text">
+    <h2>We are a creative, bold AI agency based in New Zealand</h2>
+    <p>Combining AI strategies, workshops, automation and customised solutions, 
+    we embed a human-first approach to AI and deliver measurable outcomes.</p>
+
+    <div class="intro-stats">
+      <div class="stat">
+        <strong>28+</strong>
+        years experience delivering productivity & profitability gains.
+      </div>
+      <div class="stat">
+        <strong>200+</strong>
+        clients including SMEs, enterprise and government organisations.
+      </div>
+      <div class="stat">
+        <strong>250+</strong>
+        successfully completed digital transformation projects.
+      </div>
+    </div>
+  </div>
+</section>
+
 <?php get_footer(); ?>
