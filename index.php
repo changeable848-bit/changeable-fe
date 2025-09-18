@@ -1,17 +1,17 @@
 <?php get_header(); ?>
-
 <section class="hero">
-  <div class="hero-text">
-    <h1><span>Ai</span> Agency</h1>
-    <p>Assisting business to successfully transform and thrive in the AI era. Simple, practical, and without disruption.</p>
-    <div class="hero-buttons">
-      <a href="#" class="btn-primary">Free Discovery Workshop</a>
-      <a href="#" class="btn-secondary">See how we can help you</a>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1><span class="ai">Ai</span> Agency</h1>
+      <p>This is the default template. Create a page named “Home” and set it as the static front page for full control.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-black" href="<?php echo esc_url(home_url('/contact/')); ?>">Free Discovery Workshop</a>
+        <a class="btn btn-outline" href="<?php echo esc_url(home_url('/solutions/')); ?>">See how we can help you</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="https://picsum.photos/id/1067/1600/1200" alt="Hero image">
     </div>
   </div>
-  <div class="hero-image">
-    <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="Hero image">
-  </div>
 </section>
-
 <?php get_footer(); ?>
