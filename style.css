@@ -115,3 +115,67 @@ img{max-width:100%;display:block;height:auto}
 /* ---------- DEFENSIVE styles ----------
    These ensure you see changes even if wrong template renders. */
 h1{font-weight:800}
+
+/* ---------- Logo strip + intro section ---------- */
+
+.logos-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px var(--gutter);
+  background: #fff;
+}
+
+.logos-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.logos-row img {
+  height: 40px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.logos-row img:hover {
+  opacity: 1;
+  filter: none;
+}
+
+.intro-text {
+  max-width: 900px;
+}
+
+.intro-text h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--charcoal);
+}
+
+.intro-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.stat {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--orange);
+}
