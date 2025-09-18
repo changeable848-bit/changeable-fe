@@ -4,7 +4,7 @@ Theme URI: https://changeable.co.nz
 Author: Changeable
 Author URI: https://changeable.co.nz
 Description: Ultra-light classic theme for exact front-end control (no blocks).
-Version: 1.0.2
+Version: 1.0.3
 Text Domain: changeable-fe
 */
 
@@ -16,9 +16,10 @@ Text Domain: changeable-fe
   --orange:#F97316;
   --radius:24px;
 
-  /* Shared hero height (strawberry + image will match this). */
+  /* Shared hero height: strawberry + image will match this exactly */
   --hero-h:520px;
-  /* Horizontal gutter to keep content off the browser edges slightly */
+
+  /* Page edge gutters */
   --gutter:16px;
 }
 
@@ -26,5 +27,91 @@ Text Domain: changeable-fe
 html,body{margin:0;padding:0}
 body{
   color:var(--ink);
-  font-family:"Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Space Grotesk", sans-serif;
   line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block;height:auto}
+
+/* ---------- Header ---------- */
+.site-header{background:#fff;border-bottom:1px solid #eee}
+.site-header .row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px var(--gutter);
+}
+.brand{font-weight:800;letter-spacing:.2px}
+.nav a{margin-left:22px;font-weight:700}
+@media (max-width:900px){ .nav{display:none} }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.9rem 1.25rem;border-radius:999px;font-weight:800;
+  border:2px solid transparent;transition:filter .15s ease;
+}
+.btn-black{background:#000;color:#fff;border-color:#000}
+.btn-black:hover{filter:brightness(.92)}
+.btn-outline{background:#fff;color:#000;border-color:#000}
+.btn-outline:hover{filter:brightness(.96)}
+
+/* ---------- Hero ---------- */
+/* Reduce space before hero and make full width */
+.hero{
+  padding:24px var(--gutter) 20px; /* tighter than default */
+  width:100%;
+}
+.hero-inner{
+  display:grid;gap:0;                   /* no gap between strawberry & image */
+  grid-template-columns:1fr 1fr;
+  align-items:stretch;
+}
+
+/* Left: strawberry panel (reduced top/bottom by ~15px) */
+.hero-text{
+  background:var(--strawberry);
+  height:var(--hero-h);
+  padding:30px 32px;
+  border-radius:var(--radius) 0 0 var(--radius); /* outer corners only */
+  display:flex;flex-direction:column;justify-content:center;
+}
+
+/* Headline */
+.hero-text h1{
+  font-size:clamp(36px,6.4vw,64px);
+  line-height:1.05;margin:.2rem 0 .8rem;font-weight:800;
+}
+.hero-text .ai{color:var(--orange)}
+.hero-text p{margin:0 0 18px;color:var(--charcoal);font-size:18px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Right: image forced to match strawberry height */
+.hero-media{
+  height:var(--hero-h); position:relative;
+  border-radius:0 var(--radius) var(--radius) 0;
+  overflow:hidden;
+}
+.hero-media img{
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+}
+
+/* Stack on smaller screens */
+@media (max-width:1024px){
+  :root{ --hero-h:420px; }
+  .hero-inner{grid-template-columns:1fr}
+  .hero-text{border-radius:var(--radius);margin-bottom:12px}
+  .hero-media{border-radius:var(--radius)}
+}
+@media (max-width:640px){
+  :root{ --hero-h:340px; }
+}
+
+/* ---------- Footer ---------- */
+.site-footer{border-top:1px solid #eee;padding:24px var(--gutter);color:#666;font-size:14px}
+
+/* ---------- DEFENSIVE styles ----------
+   These ensure you see changes even if wrong template renders. */
+h1{font-weight:800}
