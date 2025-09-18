@@ -1,33 +1,92 @@
-/* Reduce padding inside hero text box (strawberry section) */
-.hero-text {
-  background-color: #f7d2ca; /* strawberry */
-  padding-top: 30px;   /* was 45px, minus 15px */
-  padding-bottom: 30px;
-  padding-left: 40px;
-  padding-right: 40px;
-  border-radius: 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/*
+Theme Name: Changeable Frontend
+Theme URI: https://changeable.co.nz
+Author: Steve
+Author URI: https://changeable.co.nz
+Description: Lightweight frontend theme for Changeable
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: changeable-fe
+*/
+
+/* Base Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #0C0C0D;
 }
 
-/* Force hero section to full width, side-by-side */
+/* Hero Section */
 .hero {
   display: flex;
-  align-items: stretch;       /* both columns equal height */
+  align-items: center;
   justify-content: space-between;
-  gap: 0;                     /* remove gap between strawberry and image */
-  width: 100%;
-  margin: 0 auto;
-  max-width: 1200px;          /* optional container width, can remove */
+  padding: 30px 15px;
+  background: #f7d2ca; /* strawberry */
 }
 
-/* Image matches hero text height, fills its column */
+.hero-text {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.hero-text h1 span {
+  color: #F97316; /* accent orange */
+}
+
+.hero-text p {
+  margin: 10px 0 20px;
+  font-size: 1.1rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.hero-buttons a {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s ease-in-out;
+}
+
+.hero-buttons .btn-primary {
+  background: #000;
+  color: #fff;
+}
+
+.hero-buttons .btn-primary:hover {
+  background: #222;
+}
+
+.hero-buttons .btn-secondary {
+  border: 2px solid #000;
+  color: #000;
+}
+
+.hero-buttons .btn-secondary:hover {
+  background: #000;
+  color: #fff;
+}
+
+.hero-image {
+  flex: 1;
+  height: 100%;
+}
+
 .hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  display: block;
 }
