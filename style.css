@@ -3,7 +3,7 @@ Theme Name: Changeable FE
 Theme URI: https://changeable.co.nz
 Author: Changeable
 Description: Ultra-light classic theme for exact front-end control (no blocks).
-Version: 1.0.0
+Version: 1.0.1
 Text Domain: changeable-fe
 */
 
@@ -20,10 +20,12 @@ Text Domain: changeable-fe
   --ink:#0C0C0D;
   --charcoal:#222326;
   --cloud:#F6F7F9;
-  --accent:#3B82F6;    /* not used, here if we need it later */
   --orange:#F97316;
   --radius-lg:24px;
   --container:1140px;
+
+  /* HERO height (strawberry panel & image match) */
+  --hero-h: 520px; /* adjust this number to your taste; it’s “twice” the previous look */
 }
 
 *{box-sizing:border-box}
@@ -42,7 +44,7 @@ img{max-width:100%;height:auto;display:block}
 /* ===== Layout helpers ===== */
 .container{max-width:var(--container);margin:0 auto;padding:0 16px}
 
-/* ===== Header (simple, fast) ===== */
+/* ===== Header ===== */
 .site-header{border-bottom:1px solid #eee;background:#fff}
 .site-header .row{
   display:flex;align-items:center;justify-content:space-between;
@@ -50,7 +52,7 @@ img{max-width:100%;height:auto;display:block}
 }
 .brand{font-weight:700;letter-spacing:.2px}
 .nav a{margin-left:22px;font-weight:600}
-@media (max-width:900px){ .nav{display:none} } /* we’ll add a mobile menu later */
+@media (max-width:900px){ .nav{display:none} }
 
 /* ===== Buttons ===== */
 .btn{
@@ -64,41 +66,52 @@ img{max-width:100%;height:auto;display:block}
 .btn-outline:hover{filter:brightness(.98)}
 
 /* ===== Hero ===== */
-.hero{padding:56px 0}
+/* Request 2: reduce gap between header and hero by half (was 56px top → now 28px) */
+.hero{padding:28px 0 24px} 
+
 .hero .grid{
   display:grid;gap:32px;align-items:center;
   grid-template-columns:1.05fr .95fr;
 }
-@media (max-width:1024px){ .hero .grid{grid-template-columns:1fr} }
+@media (max-width:1024px){
+  .hero .grid{grid-template-columns:1fr}
+}
 
+/* Request 1: strawberry (blush) twice the height → fix a shared height var */
 .blush{
   background:#f7d2ca;border-radius:var(--radius-lg);
   padding:28px 20px;
+  height:var(--hero-h);
+  display:flex;flex-direction:column;justify-content:center;
 }
+
 .hero h1{
   font-size:clamp(36px,6.5vw,64px);line-height:1.05;margin:.1rem 0 .75rem;font-weight:800;
 }
 .hero .ai{color:var(--orange)}
 .hero p{color:var(--charcoal);margin:0 0 16px;font-size:18px}
-
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
 
-.hero .media{position:relative}
-.hero .media img{border-radius:var(--radius-lg)}
-.hero .card{
-  position:absolute;left:-34px;bottom:12%;
-  background:#f0c000;padding:.8rem 1rem;border-radius:16px;
-  transform:rotate(-4deg);
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
-  font-weight:800;
+/* Request 3: force image to same height as strawberry section */
+.media{
+  height:var(--hero-h);
+  position:relative;
 }
-@media (max-width:1200px){ .hero .card{left:-22px} }
-@media (max-width:1024px){ .hero .card{left:12px;bottom:10px;transform:rotate(-3deg)} }
+.media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;              /* fills container while keeping aspect ratio */
+  object-position:center;        /* center crop */
+  border-radius:var(--radius-lg);
+}
 
-/* ===== Section headings & spacing ===== */
-.section{padding:32px 0}
-.section h2{font-size:28px;margin:0 0 10px}
-.muted{color:#555}
+/* Mobile: reduce the shared height so it doesn’t overpower small screens */
+@media (max-width:1024px){
+  :root{ --hero-h: 420px; }
+}
+@media (max-width:640px){
+  :root{ --hero-h: 340px; }
+}
 
-/* Footer placeholder */
+/* Footer */
 .site-footer{border-top:1px solid #eee;padding:24px 0;color:#666;font-size:14px}
