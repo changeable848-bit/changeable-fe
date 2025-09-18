@@ -179,3 +179,67 @@ h1{font-weight:800}
   font-weight: 700;
   color: var(--orange);
 }
+
+/* ---------- Logo strip + intro section (with inline SVG logos) ---------- */
+
+.logos-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px var(--gutter);
+  background: #fff;
+}
+
+.logos-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 44px;
+  margin-bottom: 40px;
+}
+
+/* Inline SVG logos: use currentColor so we can style with opacity/color */
+.logos-row .logo {
+  width: 120px;
+  height: 40px;
+  color: #000;           /* black mono */
+  opacity: 0.75;         /* greyscale look */
+  transition: opacity .2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+.logos-row .logo:hover { opacity: 1; }
+.logos-row .logo svg { width: 100%; height: 100%; display: block; }
+
+.intro-text { max-width: 980px; }
+
+.intro-text h2 {
+  font-size: clamp(24px, 3.2vw, 32px);
+  font-weight: 800;
+  margin: 0 0 16px;
+  color: var(--charcoal);
+}
+
+.intro-text p {
+  margin: 0 auto 8px;
+  color: #444;
+}
+
+.intro-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 28px;
+}
+
+.stat { font-size: 15px; max-width: 320px; }
+.stat strong {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--orange);
+  margin-bottom: 4px;
+}
