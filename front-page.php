@@ -5,6 +5,7 @@
   <div class="container">
     <div class="grid">
 
+      <!-- Left: strawberry panel -->
       <div class="left">
         <div class="blush">
           <h1><span class="ai">Ai</span> Agency</h1>
@@ -17,6 +18,7 @@
         </div>
       </div>
 
+      <!-- Right: image (always same height as strawberry panel) -->
       <div class="media">
         <?php
           $hero_local = get_stylesheet_directory_uri() . '/assets/img/hero.jpg';
@@ -24,13 +26,10 @@
         <img src="<?php echo esc_url($hero_local); ?>"
              alt="Hero image"
              onerror="this.onerror=null;this.src='https://picsum.photos/id/1067/1400/1000';">
-        <div class="card">See how we can help you</div>
       </div>
 
     </div>
   </div>
 </section>
-
-<!-- More sections will be added below, once hero is approved -->
 
 <?php get_footer(); ?>
