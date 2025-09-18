@@ -1,117 +1,33 @@
-/*
-Theme Name: Changeable FE
-Theme URI: https://changeable.co.nz
-Author: Changeable
-Description: Ultra-light classic theme for exact front-end control (no blocks).
-Version: 1.0.1
-Text Domain: changeable-fe
-*/
-
-@font-face{
-  font-family: "SpaceGrotesk VF";
-  src: url("./assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
-  font-weight: 300 800;
-  font-style: normal;
-  font-display: swap;
+/* Reduce padding inside hero text box (strawberry section) */
+.hero-text {
+  background-color: #f7d2ca; /* strawberry */
+  padding-top: 30px;   /* was 45px, minus 15px */
+  padding-bottom: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* ===== Base ===== */
-:root{
-  --ink:#0C0C0D;
-  --charcoal:#222326;
-  --cloud:#F6F7F9;
-  --orange:#F97316;
-  --radius-lg:24px;
-  --container:1140px;
-
-  /* HERO height (strawberry panel & image match) */
-  --hero-h: 520px; /* adjust this number to your taste; it’s “twice” the previous look */
+/* Force hero section to full width, side-by-side */
+.hero {
+  display: flex;
+  align-items: stretch;       /* both columns equal height */
+  justify-content: space-between;
+  gap: 0;                     /* remove gap between strawberry and image */
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;          /* optional container width, can remove */
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  color:var(--ink);
-  font-family:"SpaceGrotesk VF","Space Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  font-weight:450;
-  line-height:1.45;
+/* Image matches hero text height, fills its column */
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
 }
-
-a{color:inherit;text-decoration:none}
-img{max-width:100%;height:auto;display:block}
-
-/* ===== Layout helpers ===== */
-.container{max-width:var(--container);margin:0 auto;padding:0 16px}
-
-/* ===== Header ===== */
-.site-header{border-bottom:1px solid #eee;background:#fff}
-.site-header .row{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 0;
-}
-.brand{font-weight:700;letter-spacing:.2px}
-.nav a{margin-left:22px;font-weight:600}
-@media (max-width:900px){ .nav{display:none} }
-
-/* ===== Buttons ===== */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:.9rem 1.25rem;border-radius:999px;font-weight:700;
-  transition:filter .15s ease; border:1.5px solid transparent;
-}
-.btn-black{background:#000;color:#fff;border-color:#000}
-.btn-black:hover{filter:brightness(.92)}
-.btn-outline{background:#fff;color:#000;border-color:#000}
-.btn-outline:hover{filter:brightness(.98)}
-
-/* ===== Hero ===== */
-/* Request 2: reduce gap between header and hero by half (was 56px top → now 28px) */
-.hero{padding:28px 0 24px} 
-
-.hero .grid{
-  display:grid;gap:32px;align-items:center;
-  grid-template-columns:1.05fr .95fr;
-}
-@media (max-width:1024px){
-  .hero .grid{grid-template-columns:1fr}
-}
-
-/* Request 1: strawberry (blush) twice the height → fix a shared height var */
-.blush{
-  background:#f7d2ca;border-radius:var(--radius-lg);
-  padding:28px 20px;
-  height:var(--hero-h);
-  display:flex;flex-direction:column;justify-content:center;
-}
-
-.hero h1{
-  font-size:clamp(36px,6.5vw,64px);line-height:1.05;margin:.1rem 0 .75rem;font-weight:800;
-}
-.hero .ai{color:var(--orange)}
-.hero p{color:var(--charcoal);margin:0 0 16px;font-size:18px}
-.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
-
-/* Request 3: force image to same height as strawberry section */
-.media{
-  height:var(--hero-h);
-  position:relative;
-}
-.media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;              /* fills container while keeping aspect ratio */
-  object-position:center;        /* center crop */
-  border-radius:var(--radius-lg);
-}
-
-/* Mobile: reduce the shared height so it doesn’t overpower small screens */
-@media (max-width:1024px){
-  :root{ --hero-h: 420px; }
-}
-@media (max-width:640px){
-  :root{ --hero-h: 340px; }
-}
-
-/* Footer */
-.site-footer{border-top:1px solid #eee;padding:24px 0;color:#666;font-size:14px}
