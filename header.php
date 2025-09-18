@@ -3,13 +3,13 @@
 <html <?php language_attributes(); ?>>
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 
 <header class="site-header">
-  <div class="container row">
+  <div class="row">
     <div class="brand">Changeable</div>
     <nav class="nav" aria-label="Primary">
       <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
@@ -21,4 +21,5 @@
     </nav>
   </div>
 </header>
+
 <main>
