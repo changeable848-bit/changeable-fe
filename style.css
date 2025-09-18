@@ -1,0 +1,104 @@
+/*
+Theme Name: Changeable FE
+Theme URI: https://changeable.co.nz
+Author: Changeable
+Description: Ultra-light classic theme for exact front-end control (no blocks).
+Version: 1.0.0
+Text Domain: changeable-fe
+*/
+
+@font-face{
+  font-family: "SpaceGrotesk VF";
+  src: url("./assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== Base ===== */
+:root{
+  --ink:#0C0C0D;
+  --charcoal:#222326;
+  --cloud:#F6F7F9;
+  --accent:#3B82F6;    /* not used, here if we need it later */
+  --orange:#F97316;
+  --radius-lg:24px;
+  --container:1140px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  color:var(--ink);
+  font-family:"SpaceGrotesk VF","Space Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  font-weight:450;
+  line-height:1.45;
+}
+
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+
+/* ===== Layout helpers ===== */
+.container{max-width:var(--container);margin:0 auto;padding:0 16px}
+
+/* ===== Header (simple, fast) ===== */
+.site-header{border-bottom:1px solid #eee;background:#fff}
+.site-header .row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 0;
+}
+.brand{font-weight:700;letter-spacing:.2px}
+.nav a{margin-left:22px;font-weight:600}
+@media (max-width:900px){ .nav{display:none} } /* we’ll add a mobile menu later */
+
+/* ===== Buttons ===== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.9rem 1.25rem;border-radius:999px;font-weight:700;
+  transition:filter .15s ease; border:1.5px solid transparent;
+}
+.btn-black{background:#000;color:#fff;border-color:#000}
+.btn-black:hover{filter:brightness(.92)}
+.btn-outline{background:#fff;color:#000;border-color:#000}
+.btn-outline:hover{filter:brightness(.98)}
+
+/* ===== Hero ===== */
+.hero{padding:56px 0}
+.hero .grid{
+  display:grid;gap:32px;align-items:center;
+  grid-template-columns:1.05fr .95fr;
+}
+@media (max-width:1024px){ .hero .grid{grid-template-columns:1fr} }
+
+.blush{
+  background:#f7d2ca;border-radius:var(--radius-lg);
+  padding:28px 20px;
+}
+.hero h1{
+  font-size:clamp(36px,6.5vw,64px);line-height:1.05;margin:.1rem 0 .75rem;font-weight:800;
+}
+.hero .ai{color:var(--orange)}
+.hero p{color:var(--charcoal);margin:0 0 16px;font-size:18px}
+
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+.hero .media{position:relative}
+.hero .media img{border-radius:var(--radius-lg)}
+.hero .card{
+  position:absolute;left:-34px;bottom:12%;
+  background:#f0c000;padding:.8rem 1rem;border-radius:16px;
+  transform:rotate(-4deg);
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  font-weight:800;
+}
+@media (max-width:1200px){ .hero .card{left:-22px} }
+@media (max-width:1024px){ .hero .card{left:12px;bottom:10px;transform:rotate(-3deg)} }
+
+/* ===== Section headings & spacing ===== */
+.section{padding:32px 0}
+.section h2{font-size:28px;margin:0 0 10px}
+.muted{color:#555}
+
+/* Footer placeholder */
+.site-footer{border-top:1px solid #eee;padding:24px 0;color:#666;font-size:14px}
